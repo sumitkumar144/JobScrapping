@@ -105,6 +105,7 @@ def index():
 
                 job_details.append(mydict)
                 keyValList = ["No Job Link"]
+                global Total_Jobs
                 Total_Jobs = list(filter(lambda x: x['Job Link'] not in keyValList, job_details))
             return render_template('results.html', Total_Jobs=Total_Jobs[0:(len(Total_Jobs) - 1)])
         except Exception as e:
