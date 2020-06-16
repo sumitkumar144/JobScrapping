@@ -7,6 +7,7 @@ from flask_cors import CORS, cross_origin
 from bs4 import BeautifulSoup as bs
 #from urllib.request import urlopen as uReq
 from selenium import webdriver
+import os
 
 app = Flask(__name__)
 
@@ -27,18 +28,20 @@ def index():
             getvars={'Sort': 2}
             totaljobs_url = 'https://www.totaljobs.com/jobs'+ '/' + joinJobString + '/' + location + '?' + urllib.parse.urlencode(getvars)
             # Assign Path Variables
-            GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-            CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+            #GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+            #CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
             # Set the Chrome Options
             chrome_options = webdriver.ChromeOptions()
+            chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
             chrome_options.add_argument('--disable-gpu')
+            chrome_options.add_argument('--disable-dev-shm-usage')
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--headless')
-            chrome_options.binary_location = GOOGLE_CHROME_PATH
+            #chrome_options.binary_location = GOOGLE_CHROME_PATH
 
             # Build the Browser
-            driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+            driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
             driver.get(totaljobs_url)
             driver.implicitly_wait(30)
