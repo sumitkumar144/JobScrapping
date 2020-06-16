@@ -47,6 +47,7 @@ def index():
             driver.implicitly_wait(30)
             source = driver.page_source
             html = bs(source, "html.parser")
+            print("html",html)
             bigboxes = html.findAll("div", {"class": "col-sm-12"})
             del bigboxes[0:3]
             print('Bigboxes', bigboxes)
