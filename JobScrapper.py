@@ -28,7 +28,7 @@ def index():
             getvars={'Sort': 2}
             totaljobs_url = 'https://www.totaljobs.com/jobs'+ '/' + joinJobString + '/' + location + '?' + urllib.parse.urlencode(getvars)
             print('totaljobs_url',totaljobs_url)
-            user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
+            #user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
             # Assign Path Variables
             #GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
             #CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
@@ -36,16 +36,17 @@ def index():
             # Set the Chrome Options
             chrome_options = webdriver.ChromeOptions()
             #chrome_options.add_argument('--headless')
-            chrome_options.add_argument('user-agent={0}'.format(user_agent))
+            #chrome_options.add_argument('user-agent={0}'.format(user_agent))
             chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
             chrome_options.add_argument('--disable-gpu')
-            #chrome_options.add_argument('--disable-dev-shm-usage')
+            chrome_options.add_argument('--disable-dev-shm-usage')
             chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument("--use-fake-ui-for-media-stream")
             #chrome_options.binary_location = GOOGLE_CHROME_PATH
 
             # Build the Browser
             driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-            driver.execute_script("return navigator.userAgent")
+            #driver.execute_script("return navigator.userAgent")
             driver.get(totaljobs_url)
             driver.implicitly_wait(30)
             source = driver.page_source
