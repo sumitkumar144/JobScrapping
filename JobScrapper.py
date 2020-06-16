@@ -104,9 +104,9 @@ def index():
                           "Job Location": job_location, "Job Posting Time": job_posting_time}
 
                 job_details.append(mydict)
-            keyValList = ["No Job Link"]
-            Job_List = list(filter(lambda x: x['Job Link'] not in keyValList, job_details))
-            print(Job_List)
+                keyValList = ["No Job Link"]
+                Job_List = list(filter(lambda x: x['Job Link'] not in keyValList, job_details))
+                print(Job_List)
             return render_template('results.html', Total_Jobs=Job_List[0:(len(Job_List) - 1)])
         except Exception as e:
             print('The Exception message is: ', e)
