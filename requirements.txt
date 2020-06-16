@@ -12,7 +12,6 @@ idna==2.9
 itsdangerous==1.1.0
 Jinja2==2.10.3
 MarkupSafe==1.1.1
-mkl-fft==1.0.6
 numpy==1.17.4
 olefile==0.46
 opencv-python==4.1.2.30
