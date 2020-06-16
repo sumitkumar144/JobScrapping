@@ -3,9 +3,9 @@ from lib2to3.pgen2 import driver
 import urllib
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
-import requests
+#import requests
 from bs4 import BeautifulSoup as bs
-from urllib.request import urlopen as uReq
+#from urllib.request import urlopen as uReq
 from selenium import webdriver
 
 app = Flask(__name__)
