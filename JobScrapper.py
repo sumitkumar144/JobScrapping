@@ -27,6 +27,7 @@ def index():
             location = 'in-'+request.form['location']
             getvars={'Sort': 2}
             totaljobs_url = 'https://www.totaljobs.com/jobs'+ '/' + joinJobString + '/' + location + '?' + urllib.parse.urlencode(getvars)
+            print('totaljobs_url',totaljobs_url)
             # Assign Path Variables
             #GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
             #CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
@@ -49,7 +50,7 @@ def index():
             html = bs(source, "html.parser")
             print("html",html)
             bigboxes = html.findAll("div", {"class": "col-sm-12"})
-            del bigboxes[0:3]
+            #del bigboxes[0:3]
             print('Bigboxes', bigboxes)
             filename = joinJobString + ".csv"
             fw = open(filename, "w")
