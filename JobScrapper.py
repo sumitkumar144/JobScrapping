@@ -49,6 +49,7 @@ def index():
             html = bs(source, "html.parser")
             bigboxes = html.findAll("div", {"class": "col-sm-12"})
             del bigboxes[0:3]
+            print('Bigboxes', bigboxes)
             filename = joinJobString + ".csv"
             fw = open(filename, "w")
             headers = "Job Title, Company Name, Job Location, Job Posting Time, Job Link \n"
