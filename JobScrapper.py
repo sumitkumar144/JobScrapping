@@ -104,7 +104,6 @@ def index():
 
                 job_details.append(mydict)
                 print(job_details)
-
             keyValList = ["No Job Link"]
             Job_List = list(filter(lambda x: x['Job Link'] not in keyValList, job_details))
             print(Job_List)
