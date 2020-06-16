@@ -38,7 +38,7 @@ def index():
             chrome_options.binary_location = GOOGLE_CHROME_PATH
 
             # Build the Browser
-            driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+            driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 
             driver.get(totaljobs_url)
             driver.implicitly_wait(30)
