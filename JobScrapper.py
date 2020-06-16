@@ -26,8 +26,19 @@ def index():
             location = 'in-'+request.form['location']
             getvars={'Sort': 2}
             totaljobs_url = 'https://www.totaljobs.com/jobs'+ '/' + joinJobString + '/' + location + '?' + urllib.parse.urlencode(getvars)
+            # Assign Path Variables
+            GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+            CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+
+            # Set the Chrome Options
             chrome_options = webdriver.ChromeOptions()
-            driver = webdriver.Chrome(chrome_options=chrome_options)
+            chrome_options.add_argument('--disable-gpu')
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.binary_location = GOOGLE_CHROME_PATH
+
+            # Build the Browser
+            driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+
             driver.get(totaljobs_url)
             driver.implicitly_wait(30)
             source = driver.page_source
