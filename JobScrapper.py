@@ -53,7 +53,6 @@ def index():
             fw = open(filename, "w")
             headers = "Job Title, Company Name, Job Location, Job Posting Time, Job Link \n"
             fw.write(headers)
-            job_details=[]
             job_details = []
             for bigbox in bigboxes:
                 try:
@@ -104,6 +103,7 @@ def index():
                           "Job Location": job_location, "Job Posting Time": job_posting_time}
 
                 job_details.append(mydict)
+                print(job_details)
                 keyValList = ["No Job Link"]
                 Job_List = list(filter(lambda x: x['Job Link'] not in keyValList, job_details))
                 print(Job_List)
