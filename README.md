@@ -23,7 +23,7 @@ The main objective of this project is to scrap jobs from [Total Jobs](https://ww
  Please don't follow step 1 build pack links as they are no longer available. Go to the available stackoverflow link given there.
   - [YouTube](https://www.youtube.com/watch?v=Ven-pqwk3ec&t=305s)
  
-  After deploying the application into Heroku, i have observed that because of security protocol it is not allowing to scrap the webpage. But the same is working find from local machine.
+  After deploying the application into Heroku, i have observed that because of security protocol it is not allowing to scrap the webpage. But the same is working fine from local machine using local host.
  
  Below given are the screen shots from the testing of code on Local Machine:
  
